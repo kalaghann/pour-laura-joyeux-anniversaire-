@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Laura</title>
+    <style>
+        /* Styles généraux et fond fixe */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: #4a1525;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            
+            /* Le fond magique qui va changer */
+            background: linear-gradient(to bottom, #ffe5ec, #ffc2d1);
+            background-attachment: fixed;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        /* Classe spéciale pour le ciel étoilé à la fin */
+        body.starry-night {
+            background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                              radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                              radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 20px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-color: #0b091a !important;
+            background-attachment: fixed;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #fb6f92;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            transition: color 0.5s ease;
+        }
+
+        body.dark-mode h1 {
+            color: #ff8fab;
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #6c2d40;
+            transition: color 0.5s ease;
+        }
+        body.dark-mode .subtitle {
+            color: #ffe5ec;
+        }
+
+        .counter {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px 25px;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 143, 171, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.5s ease;
+            color: #4a1525;
+            line-height: 1.5;
+        }
+        body.dark-mode .counter {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff0f3;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Boîte des poèmes */
+        .poem-card {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 100px 0;
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out, background 0.5s ease, border 0.5s ease;
+        }
+
+        .poem-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.dark-mode .poem-card {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .poem-title {
+            font-size: 1.6rem;
+            color: #ff8fab;
+            margin-bottom: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .poem-content {
+            font-size: 1.15rem;
+            line-height: 2;
+            white-space: pre-line;
+            color: #3d1c26;
+            transition: color 0.5s ease;
+        }
+        
+        body.dark-mode .poem-content {
+            color: #ffffff !important;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .heart {
+            color: #fb6f92;
+            font-size: 1.3rem;
+            margin-top: 25px;
+        }
+
+        footer {
+            padding: 80px 40px;
+            font-style: italic;
+            color: #6c2d40;
+            text-align: center;
+            transition: color 0.5s ease;
+        }
+        body.dark-mode footer {
+            color: #ff8fab;
+            font-size: 1.3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pour Laura</h1>
+        <div class="subtitle">Quelques lignes à lire avant de fermer les yeux...</div>
+        <div class="counter" id="timer">Calcul de notre bonheur...</div>
+    </header>
+
+    <div class="container">
+
+        <div class="poem-card">
+            <div class="poem-title">🌌 1. Quand la nuit s'installe</div>
+            <div class="poem-content">
+                Le jour s'efface doucement et laisse place au soir,
+                Le monde s'endort, enveloppé d'un grand manteau noir.
+                C'est le moment précis où mes pensées s'envolent,
+                Où les bruits de la Terre s'éteignent et se consolent.
+                Je repense à ton rire, à l'éclat de tes yeux,
+                À ce lien invisible qui nous rend si heureux.
+                Même si la distance nous sépare quelques heures,
+                Ton doux visage reste gravé dans mon cœur.
+                Laisse les soucis du jour s'en aller au lointain,
+                Dors paisiblement, Laura, jusqu'au prochain matin.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">✨ 2. L'Abri de nos cœurs</div>
+            <div class="poem-content">
+                Dans ce monde qui court et qui ne s'arrête jamais,
+                Près de toi j'ai trouvé une bulle de paix.
+                Un refuge secret où l'on peut être soi,
+                Où le temps suspendu ne dicte plus sa loi.
+                Chaque mot que tu dis est un baume rassurant,
+                Chaque instant partagé devient un océan.
+                Une promesse muette écrite dans le vent,
+                Qui nous porte et nous guide depuis le premier temps.
+                Repose-toi ce soir dans ce havre si doux,
+                Rien ne peut effacer ce qu'il y a entre nous.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">🌙 3. Une pluie d'étoiles</div>
+            <div class="poem-content">
+                Regarde par la fenêtre les astres s'allumer,
+                Comme autant de bougies pour venir t'éclairer.
+                J'aimerais décrocher la plus belle et la plus grande,
+                Pour la poser sur ton lit en guise d'offrande.
+                Qu'elle veille sur tes rêves et sur ton sommeil,
+                Qu'elle te chuchote mes mots jusqu'au réveil.
+                Tu es mon étoile, celle qui dicte mes pas,
+                Mon plus beau chemin dès que tu es là.
+                Que ton esprit s'apaise et se laisse bercer,
+                Par la douce mélodie de mes vœux empressés.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">🍃 4. Les murmures du temps</div>
+            <div class="poem-content">
+                Le temps coule et s'échappe comme un sable doré,
+                Mais avec toi, Laura, il semble s'accorder.
+                On dessine nos heures avec des rires complices,
+                Faisant de nos journées un éternel délice.
+                J'aime la certitude de te retrouver,
+                De savoir que demain nous pourrons tout réinventer.
+                Ferme tes yeux jolis, laisse aller tes pensées,
+                Vers ces souvenirs doux que nous avons tracés.
+                La nuit est une amie qui prépare nos demains,
+                Où nous marcherons encore, la main dans la main.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">🌊 5. Comme une évidence</div>
+            <div class="poem-content">
+                Certaines rencontres sont écrites dans le ciel,
+                Elles apportent un sens, un parfum de miel.
+                Tu es entrée dans ma vie sans bruit, sans artifice,
+                Et tu as balayé mes doutes et mes supplices.
+                Ta présence est un don, une douce chaleur,
+                Qui redonne l'élan et réveille le bonheur.
+                Ce soir, je veux juste te dire merci d'être là,
+                D'être cette personne unique que l'on n'oublie pas.
+                Que ton sommeil soit léger comme une plume,
+                Au milieu de la nuit et de sa douce brume.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">🪐 6. Au-delà du silence</div>
+            <div class="poem-content">
+                Quand tout devient calme et que la maison s'endort,
+                Mon esprit cherche le tien et le trouve encore.
+                Il n'y a pas de vide quand on s'aime aussi fort,
+                L'amour comble l'espace, il est notre trésor.
+                J'écoute le silence et j'y entends ta voix,
+                Ce murmure si tendre qui me remplit de joie.
+                Passe une nuit sereine, enveloppée de douceur,
+                Loin de l'agitation, tout près de mon cœur.
+                Laisse tes rêves filer vers des pays joyeux,
+                Où le ciel reste pur et toujours radieux.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">🌅 7. La promesse de l'aube</div>
+            <div class="poem-content">
+                La nuit n'est qu'un passage, un court moment d'attente,
+                Avant que la lumière à nouveau se présente.
+                Chaque soir où je m'endors en pensant à toi,
+                Je sais que le réveil sera rempli de joie.
+                Car chaque nouveau jour est une chance de plus,
+                De vivre notre histoire et ses moments imprévus.
+                Alors ne crains pas l'ombre ni le noir de la nuit,
+                Ils préparent le soleil qui chassera l'ennui.
+                Repose tes pensées, laisse ton corps s'endormir,
+                Avec la certitude d'un magnifique avenir.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">🎨 8. La toile de nos vies</div>
+            <div class="poem-content">
+                Chaque jour partagé ajoute une couleur,
+                Sur la grande peinture de notre bonheur.
+                Du rose pour la tendresse, du bleu pour la paix,
+                Et des éclats dorés pour ce que tu m'offrais.
+                Tu embellis ma vie de ta simple présence,
+                Donnant à chaque seconde une immense importance.
+                Que tes rêves de nuit soient aussi colorés,
+                Que les plus beaux instants que tu m'as donnés.
+                Dors bien, ma confidente, mon repère, mon amour,
+                Je veillerai sur toi, de près ou de loin, toujours.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">🕯️ 9. La douceur d'une pensée</div>
+            <div class="poem-content">
+                Si une douce brise vient effleurer ton front,
+                C'est un baiser secret que mes pensées t'envoient.
+                Une onde de chaleur au milieu du grand froid,
+                Un mot doux pour briser l'horizon trop profond.
+                Sache que tu es aimée pour tout ce que tu es,
+                Pour ta force, ta bonté et ta grande simplicité.
+                Laisse mon souvenir t'accompagner ce soir,
+                Comme un phare rassurant au milieu de l'espoir.
+                Que ton sommeil efface la fatigue accumulée,
+                Pour te rendre demain toute ta vitalité.
+            </div>
+            <div class="heart">❤️</div>
+        </div>
+
+        <div class="poem-card">
+            <div class="poem-title">🧸 10. Le dernier mot pour toi</div>
+            <div class="poem-content">
+                Voici la fin des lignes, le moment de clore,
+                Ce petit livre virtuel que mon cœur adore.
+                Mais notre propre histoire, elle, ne fait que grandir,
+                Avec des milliers de pages encore à écrire.
+                Ferme tes yeux, Laura, laisse-toi emporter,
+                Par le sommeil tranquille et sa grande légèreté.
+                Je t'aime un peu plus fort à chaque battement,
+                Hier, aujourd'hui, et pour tout le reste du temps.
+                Fais de magnifiques rêves, douillets et chaleureux,
+                À demain, mon amour, pour être encore heureux.
+            </div>
+            <div class="heart">💝</div>
+        </div>
+
+    </div>
+
+    <footer>
+        Bonne nuit Laura. Je t'aime.
+    </footer>
+
+    <script>
+        // --- CONFIGURATION DU COMPTEUR ---
+        // Remplace par votre date précise de rencontre : (Année, Mois-1, Jour, Heure, Minute)
+        // Note : Les mois commencent à 0 (Janvier = 0, Février = 1, Mars = 2, Avril = 3, Mai = 4...)
+        const startDate = new Date(2025, 4, 10, 0, 0, 0); 
+
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+
+            // Calculs pour obtenir les jours, heures, minutes et secondes
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            // Affichage dynamique
+            document.getElementById('timer').innerHTML = 
+                `Ensemble depuis :<br><strong>${days}j ${hours}h ${minutes}m ${seconds}s</strong> ✨`;
+        }
+        
+        // Rafraîchissement ultra rapide (toutes les secondes)
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // --- ANIMATION AU DÉFILEMENT (AFFICHE LES POÈMES) ---
+        const cards = document.querySelectorAll('.poem-card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        cards.forEach(card => observer.observe(card));
+
+        // --- GESTION DU FOND EN FONCTION DU SCROLL ---
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+
+            const body = document.body;
+
+            if (scrollPercent < 0.25) {
+                body.className = '';
+                body.style.background = "linear-gradient(to bottom, #ffe5ec, #ffc2d1)";
+            } else if (scrollPercent >= 0.25 && scrollPercent < 0.55) {
+                body.className = '';
+                body.style.background = "linear-gradient(to bottom, #ffc2d1, #b5838d)";
+            } else if (scrollPercent >= 0.55 && scrollPercent < 0.82) {
+                body.className = 'dark-mode';
+                body.style.background = "linear-gradient(to bottom, #b5838d, #2b2d42)";
+            } else {
+                body.className = 'dark-mode starry-night';
+            }
+        });
+    </script>
+
+</body>
+</html>
