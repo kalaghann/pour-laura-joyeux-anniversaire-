@@ -4,38 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pour Laura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Styles généraux et fond fixe */
+        /* Styles généraux et fond fluide */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Georgia', serif;
+            font-family: 'Quicksand', sans-serif; /* Police douce et ronde */
             color: #4a1525;
             display: flex;
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
             
-            /* Le fond magique qui va changer */
+            /* Fond magique évolutif */
             background: linear-gradient(to bottom, #ffe5ec, #ffc2d1);
             background-attachment: fixed;
-            transition: background 0.5s ease, color 0.5s ease;
+            transition: background 0.8s ease, color 0.8s ease;
         }
 
-        /* Classe spéciale pour le ciel étoilé à la fin */
+        /* Effet Ciel Étoilé pour le grand final */
         body.starry-night {
             background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
                               radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
                               radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 20px);
             background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-color: #0b091a !important;
+            background-color: #0c0a21 !important;
             background-attachment: fixed;
         }
 
+        /* En-tête */
         header {
             text-align: center;
-            padding: 60px 20px;
-            min-height: 60vh;
+            padding: 80px 20px 40px 20px;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -43,64 +46,87 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-family: 'Great Vibes', cursive; /* Écriture manuscrite élégante */
+            font-size: 4.5rem;
             margin-bottom: 10px;
             color: #fb6f92;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-            transition: color 0.5s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+            transition: color 0.8s ease;
         }
 
         body.dark-mode h1 {
-            color: #ff8fab;
+            color: #ffb7b2;
+            text-shadow: 0 0 15px rgba(255, 183, 178, 0.4);
         }
 
         .subtitle {
             font-style: italic;
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             color: #6c2d40;
-            transition: color 0.5s ease;
+            transition: color 0.8s ease;
         }
         body.dark-mode .subtitle {
-            color: #ffe5ec;
+            color: #ffccd5;
         }
 
+        /* Compteur Style "Nuage" très doux */
         .counter {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 15px 25px;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px 30px;
+            border-radius: 25px;
+            font-size: 1.15rem;
+            box-shadow: 0 8px 20px rgba(251, 111, 146, 0.1);
             border: 1px solid rgba(255, 143, 171, 0.3);
-            backdrop-filter: blur(5px);
-            transition: all 0.5s ease;
+            backdrop-filter: blur(8px);
+            transition: all 0.8s ease;
             color: #4a1525;
-            line-height: 1.5;
+            line-height: 1.6;
+            text-align: center;
         }
+        
         body.dark-mode .counter {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             color: #fff0f3;
-            border-color: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
+        /* Lecteur Spotify intégré et arrondi */
+        .spotify-container {
+            width: 100%;
+            max-width: 350px;
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(251, 111, 146, 0.15);
+            transition: all 0.8s ease;
+        }
+
+        body.dark-mode .spotify-container {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Conteneur */
         .container {
             width: 100%;
-            max-width: 650px;
+            max-width: 620px;
             padding: 20px;
             box-sizing: border-box;
         }
 
-        /* Boîte des poèmes */
+        /* Cartes des poèmes ornées et mignonnes */
         .poem-card {
-            background: rgba(255, 255, 255, 0.95);
-            margin: 100px 0;
+            background: rgba(255, 255, 255, 0.92);
+            margin: 90px 0;
             padding: 50px 40px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(251, 111, 146, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             text-align: center;
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out, background 0.5s ease, border 0.5s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out, background 0.5s ease, border 0.5s ease, box-shadow 0.3s ease;
         }
 
         .poem-card.visible {
@@ -108,50 +134,86 @@
             transform: translateY(0);
         }
 
-        body.dark-mode .poem-card {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        /* Effet au survol : la carte s'illumine et flotte */
+        .poem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(251, 111, 146, 0.15);
         }
 
+        body.dark-mode .poem-card {
+            background: rgba(255, 255, 255, 0.07) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        body.dark-mode .poem-card:hover {
+            box-shadow: 0 15px 40px rgba(255, 143, 171, 0.15);
+        }
+
+        /* Titre des poèmes */
         .poem-title {
-            font-size: 1.6rem;
-            color: #ff8fab;
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            color: #fb6f92;
             margin-bottom: 25px;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        body.dark-mode .poem-title {
+            color: #ff8fab;
         }
 
+        /* Contenu du poème */
         .poem-content {
             font-size: 1.15rem;
-            line-height: 2;
+            line-height: 1.9;
             white-space: pre-line;
-            color: #3d1c26;
+            color: #4a1525;
             transition: color 0.5s ease;
         }
         
         body.dark-mode .poem-content {
-            color: #ffffff !important;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            color: #fff0f3;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
         }
 
-        .heart {
+        /* Séparateur cœurs mignons */
+        .heart-divider {
             color: #fb6f92;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            opacity: 0.8;
+            transition: transform 0.3s ease;
+        }
+        
+        .poem-card:hover .heart-divider {
+            transform: scale(1.15); /* Les cœurs grandissent doucement au survol */
         }
 
+        body.dark-mode .heart-divider {
+            color: #ff8fab;
+        }
+
+        /* Footer */
         footer {
-            padding: 80px 40px;
+            padding: 100px 40px;
             font-style: italic;
             color: #6c2d40;
             text-align: center;
-            transition: color 0.5s ease;
+            font-size: 1.1rem;
+            transition: all 0.5s ease;
         }
         body.dark-mode footer {
-            color: #ff8fab;
-            font-size: 1.3rem;
+            color: #ffccd5;
+            font-size: 1.25rem;
+            text-shadow: 0 0 10px rgba(255, 143, 171, 0.3);
         }
     </style>
 </head>
@@ -159,8 +221,14 @@
 
     <header>
         <h1>Pour Laura</h1>
-        <div class="subtitle">Quelques lignes à lire avant de fermer les yeux...</div>
+        <div class="subtitle">Quelques mots doux à lire en musique avant de s'endormir...</div>
+        
         <div class="counter" id="timer">Calcul de notre bonheur...</div>
+
+        <div class="spotify-container">
+            <iframe src="https://open.spotify.com/embed/playlist/4O65A7b5K4PscH4P1n8Gsc?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            
+        </div>
     </header>
 
     <div class="container">
@@ -179,7 +247,7 @@
                 Laisse les soucis du jour s'en aller au lointain,
                 Dors paisiblement, Laura, jusqu'au prochain matin.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">✨ 💖 ✨</div>
         </div>
 
         <div class="poem-card">
@@ -196,7 +264,7 @@
                 Repose-toi ce soir dans ce havre si doux,
                 Rien ne peut effacer ce qu'il y a entre nous.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">🌸 💕 🌸</div>
         </div>
 
         <div class="poem-card">
@@ -213,7 +281,7 @@
                 Que ton esprit s'apaise et se laisse bercer,
                 Par la douce mélodie de mes vœux empressés.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">✨ 💞 ✨</div>
         </div>
 
         <div class="poem-card">
@@ -230,7 +298,7 @@
                 La nuit est une amie qui prépare nos demains,
                 Où nous marcherons encore, la main dans la main.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">🌿 💓 🌿</div>
         </div>
 
         <div class="poem-card">
@@ -247,7 +315,7 @@
                 Que ton sommeil soit léger comme une plume,
                 Au milieu de la nuit et de sa douce brume.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">🔮 💝 🔮</div>
         </div>
 
         <div class="poem-card">
@@ -264,7 +332,7 @@
                 Laisse tes rêves filer vers des pays joyeux,
                 Où le ciel reste pur et toujours radieux.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">✨ ❤️ ✨</div>
         </div>
 
         <div class="poem-card">
@@ -281,7 +349,7 @@
                 Repose tes pensées, laisse ton corps s'endormir,
                 Avec la certitude d'un magnifique avenir.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">☀️ 💕 ☀️</div>
         </div>
 
         <div class="poem-card">
@@ -298,7 +366,7 @@
                 Dors bien, ma confidente, mon repère, mon amour,
                 Je veillerai sur toi, de près ou de loin, toujours.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">🎨 💖 🎨</div>
         </div>
 
         <div class="poem-card">
@@ -315,7 +383,7 @@
                 Que ton sommeil efface la fatigue accumulée,
                 Pour te rendre demain toute ta vitalité.
             </div>
-            <div class="heart">❤️</div>
+            <div class="heart-divider">✨ 💓 ✨</div>
         </div>
 
         <div class="poem-card">
@@ -332,41 +400,37 @@
                 Fais de magnifiques rêves, douillets et chaleureux,
                 À demain, mon amour, pour être encore heureux.
             </div>
-            <div class="heart">💝</div>
+            <div class="heart-divider">💝 💤 💝</div>
         </div>
 
     </div>
 
     <footer>
-        Bonne nuit Laura. Je t'aime.
+        Dors bien Laura. Je t'aime plus que tout.
     </footer>
 
     <script>
         // --- CONFIGURATION DU COMPTEUR ---
-        // Remplace par votre date précise de rencontre : (Année, Mois-1, Jour, Heure, Minute)
-        // Note : Les mois commencent à 0 (Janvier = 0, Février = 1, Mars = 2, Avril = 3, Mai = 4...)
-        const startDate = new Date(2026, 2, 8, 0, 0, 0); 
+        // (Date de départ corrigée : Mars 2026)
+        const startDate = new Date(2026, 2, 10, 0, 0, 0); 
 
         function updateTimer() {
             const now = new Date();
             const diff = now - startDate;
 
-            // Calculs pour obtenir les jours, heures, minutes et secondes
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            // Affichage dynamique
             document.getElementById('timer').innerHTML = 
                 `Ensemble depuis :<br><strong>${days}j ${hours}h ${minutes}m ${seconds}s</strong> ✨`;
         }
         
-        // Rafraîchissement ultra rapide (toutes les secondes)
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // --- ANIMATION AU DÉFILEMENT (AFFICHE LES POÈMES) ---
+        // --- ANIMATION AU DÉFILEMENT ---
         const cards = document.querySelectorAll('.poem-card');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -402,3 +466,4 @@
 
 </body>
 </html>
+
