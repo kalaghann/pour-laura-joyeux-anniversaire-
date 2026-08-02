@@ -117,7 +117,7 @@
 
         .container {
             width: 100%;
-            max-width: 720px;
+            max-width: 760px;
             padding: 20px;
         }
 
@@ -217,7 +217,7 @@
         body.dark-mode .flip-front { background: rgba(255, 255, 255, 0.08); color: #fff; }
         body.dark-mode .flip-front span { color: #aaa; }
 
-        /* GALERIE POLAROID */
+        /* GALERIE POLAROID (4 CADRES) */
         .polaroid-container {
             display: flex;
             justify-content: center;
@@ -230,16 +230,19 @@
             padding: 12px 12px 25px 12px;
             border-radius: 6px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-            width: 210px;
+            width: 165px;
             text-align: center;
             transition: transform 0.3s ease;
         }
         .polaroid:nth-child(1) { transform: rotate(-4deg); }
         .polaroid:nth-child(2) { transform: rotate(3deg); }
+        .polaroid:nth-child(3) { transform: rotate(-2deg); }
+        .polaroid:nth-child(4) { transform: rotate(4deg); }
         .polaroid:hover { transform: rotate(0deg) scale(1.08); z-index: 5; }
+        
         .polaroid-img {
             width: 100%;
-            height: 180px;
+            height: 150px;
             object-fit: cover;
             border-radius: 4px;
             background: #ffe5ec;
@@ -251,8 +254,8 @@
         }
         .polaroid-caption {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.4rem;
-            margin-top: 12px;
+            font-size: 1.3rem;
+            margin-top: 10px;
             color: #4a1525;
         }
 
@@ -437,22 +440,36 @@
             </div>
         </div>
 
-        <        <div class="section-title">Nos souvenirs </div>
+        <div class="section-title">Nos Souvenirs</div>
         <div class="polaroid-container">
             <div class="polaroid">
                 <div class="polaroid-img">
                     <img src="https://i.ibb.co/jP8mQ2FN/IMG-4156.gif" alt="Nos premiers rires" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
                 </div>
-                <div class="polaroid-caption">1er ficha pro max 😝</div>
+                <div class="polaroid-caption">Nos premiers rires</div>
             </div>
+
             <div class="polaroid">
                 <div class="polaroid-img">
                     <img src="https://i.ibb.co/JW5d5jwh/Screenshot-2026-01-04-033140.jpg" alt="Sous les étoiles" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
                 </div>
-                <div class="polaroid-caption">1er main contre main 🫣 ( je me suis fait dessus )</div>
+                <div class="polaroid-caption">Sous les étoiles</div>
+            </div>
+
+            <div class="polaroid">
+                <div class="polaroid-img">
+                    <img src="https://i.ibb.co/Sw0rYbrH/Sans-titre-5-20260121231943.png" alt="Moment magique" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                </div>
+                <div class="polaroid-caption">Moment magique</div>
+            </div>
+
+            <div class="polaroid">
+                <div class="polaroid-img">
+                    <img src="https://i.ibb.co/ZpZptc3q/D736-DF09-F011-4-F3-C-8-AFA-B989-FC00386-F.png" alt="Pour toujours" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                </div>
+                <div class="polaroid-caption">Pour toujours</div>
             </div>
         </div>
-
 
         <div class="section-title">Poèmes pour bercer tes nuits</div>
 
