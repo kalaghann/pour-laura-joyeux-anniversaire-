@@ -117,7 +117,7 @@
 
         .container {
             width: 100%;
-            max-width: 760px;
+            max-width: 720px;
             padding: 20px;
         }
 
@@ -217,7 +217,7 @@
         body.dark-mode .flip-front { background: rgba(255, 255, 255, 0.08); color: #fff; }
         body.dark-mode .flip-front span { color: #aaa; }
 
-        /* GALERIE POLAROID (4 CADRES) */
+        /* GALERIE POLAROID (4 POLAROIDS) */
         .polaroid-container {
             display: flex;
             justify-content: center;
@@ -230,7 +230,7 @@
             padding: 12px 12px 25px 12px;
             border-radius: 6px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-            width: 165px;
+            width: 200px;
             text-align: center;
             transition: transform 0.3s ease;
         }
@@ -239,10 +239,9 @@
         .polaroid:nth-child(3) { transform: rotate(-2deg); }
         .polaroid:nth-child(4) { transform: rotate(4deg); }
         .polaroid:hover { transform: rotate(0deg) scale(1.08); z-index: 5; }
-        
         .polaroid-img {
             width: 100%;
-            height: 150px;
+            height: 170px;
             object-fit: cover;
             border-radius: 4px;
             background: #ffe5ec;
@@ -254,8 +253,8 @@
         }
         .polaroid-caption {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.3rem;
-            margin-top: 10px;
+            font-size: 1.4rem;
+            margin-top: 12px;
             color: #4a1525;
         }
 
@@ -458,14 +457,14 @@
 
             <div class="polaroid">
                 <div class="polaroid-img">
-                    <img src="https://i.ibb.co/Sw0rYbrH/Sans-titre-5-20260121231943.png" alt="Moment magique" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                    <i class="fa-solid fa-heart fa-2x"></i>
                 </div>
-                <div class="polaroid-caption">Moment magique</div>
+                <div class="polaroid-caption">Moments précieux</div>
             </div>
 
             <div class="polaroid">
                 <div class="polaroid-img">
-                    <img src="https://i.ibb.co/ZpZptc3q/D736-DF09-F011-4-F3-C-8-AFA-B989-FC00386-F.png" alt="Pour toujours" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                    <i class="fa-solid fa-sparkles fa-2x"></i>
                 </div>
                 <div class="polaroid-caption">Pour toujours</div>
             </div>
@@ -722,3 +721,4 @@
     </script>
 </body>
 </html>
+
